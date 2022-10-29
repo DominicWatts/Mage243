@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="PixieMedia\ServerPush\Model\Output\OutputChainInterface" type="PixieMedia\ServerPush\Model\Output\OutputChain"/>
+    <type name="PixieMedia\ServerPush\Model\Output\OutputChain">
+        <arguments>
+            <argument name="ampProcessors" xsi:type="array">
+                <item name="isHtml" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">0</item>
+                    <item name="processor" xsi:type="object">PixieMedia\ServerPush\Model\Output\CheckIsOutputHtmlProcessor</item>
+                </item>
+            </argument>
+            <argument name="processors" xsi:type="array">
+                <item name="isHtml" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">0</item>
+                    <item name="processor" xsi:type="object">PixieMedia\ServerPush\Model\Output\CheckIsOutputHtmlProcessor</item>
+                </item>
+                <item name="assetCollector" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">100</item>
+                    <item name="processor" xsi:type="object">PixieMedia\ServerPush\Model\Output\AssetCollectorProcessor</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="PixieMedia\ServerPush\Plugin\ProcessPageResult">
+        <arguments>
+            <argument name="outputChain" xsi:type="object">PixieMedia\ServerPush\Model\Output\OutputChain\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="PixieMedia\ServerPush\Model\OptionSource\ServerPushAssetTypes">
+        <arguments>
+            <argument name="assetTypes" xsi:type="array">
+                <item name="js" translatable="true" xsi:type="string">JS Files</item>
+                <item name="css" translatable="true" xsi:type="string">CSS Files</item>
+                <item name="font" translatable="true" xsi:type="string">Font Files</item>
+                <item name="preload_image" translatable="true" xsi:type="string">Preloaded Images</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="PixieMedia\ServerPush\Model\Asset\CollectorAdapter">
+        <arguments>
+            <argument name="collectors" xsi:type="array">
+                <item name="js" xsi:type="object">PixieMedia\ServerPush\Model\Asset\Collector\JsCollector</item>
+                <item name="css" xsi:type="object">PixieMedia\ServerPush\Model\Asset\Collector\CssCollector</item>
+                <item name="font" xsi:type="object">PixieMedia\ServerPush\Model\Asset\Collector\FontCollector</item>
+                <item name="preload_image" xsi:type="object">PixieMedia\ServerPush\Model\Asset\Collector\PreloadImageCollector</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -10,18 +10,19 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "version": "2.4.3-p1",
+    "version": "2.4.3",
     "require": {
-        "magento/composer-dependency-version-audit-plugin": "~0.1",
+        "auctane/api": "^2.3",
+        "dominicwatts/faker": "^1.2",
+        "dominicwatts/magentodevelopbundle": "^1.0",
+        "dominicwatts/special": "^1.1",
+        "ghoster/module-outofstockatlast": "^1.0",
+        "hurricanecommerce/module-duty-tax-compliance": "^1.0",
+        "iwd/dominate-saas": "^4.2",
         "magento/composer-root-update-plugin": "~1.1",
-        "magento/product-community-edition": "2.4.3-p1",
-        "magepal/magento2-googletagmanager": "^2.7",
-        "wyomind/core": "^4.6",
-        "wyomind/cronscheduler": "^1.13",
-        "wyomind/framework": "^7.1",
-        "wyomind/pickupatstore": "^7.2",
-        "wyomind/simplegoogleshopping": "^14.7",
-        "wyomind/watchlog": "^2.3"
+        "magento/product-community-edition": "2.4.3",
+        "magento/quality-patches": "^1.1",
+        "sparsh/magento-2-advanced-sorting-extension": "^1.1"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -47,6 +48,7 @@
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.4",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "deployer/deployer": "^7.0",
         "friendsofphp/php-cs-fixer": "~2.18.1",
         "lusitanian/oauth": "~0.8.10",
         "magento/magento-coding-standard": "*",
@@ -75,20 +77,12 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "repositories": {
-        "0": {
+    "repositories": [
+        {
             "type": "composer",
             "url": "https://repo.magento.com/"
-        },
-        "wyomind": {
-            "type": "composer",
-            "url": "https://tristan_sparkworld_co_uk:DWATileg@repo.wyomind.com"
-        },
-        "magepal-googletagmanager": {
-            "type": "git",
-            "url": "git@github.com:magepal/magento2-googletagmanager.git"
         }
-    },
+    ],
     "extra": {
         "magento-force": "override"
     }

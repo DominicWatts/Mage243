@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="pixiemedia_serverpush_after_process_page_result">
+        <observer name="PixieMedia_ServerPush::AddLinkHeader" instance="PixieMedia\ServerPush\Observer\AddLinkHeader" />
+    </event>
+</config>

@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="pixiemedia" translate="label" sortOrder="999">
+            <label>Pixie Media</label>
+        </tab>
+        <section id="serverpush" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+            <label>Server Push</label>
+            <tab>pixiemedia</tab>
+            <resource>PixieMedia_ServerPush::config_pixiemedia_serverpush</resource>
+            <group id="general" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <label>General</label>
+                <field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Enabled</label>
+                    <comment/>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="server_push_types" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Asset Types to Server Push</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>PixieMedia\ServerPush\Model\OptionSource\ServerPushAssetTypes</source_model>
+                    <config_path>serverpush/general/server_push_types</config_path>
+                </field>
+                <field id="server_push_exclude" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude URLs from Server Push</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Each URL or part of the URL from new line</comment>
+                    <config_path>serverpush/general/server_push_exclude</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
