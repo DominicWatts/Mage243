@@ -1,7 +1,7 @@
 <?php
 namespace Deployer;
 
-require 'recipe/magento2.php';
+require '/app/vendor/deployer/deployer/recipe/magento2.php';
 
 // Config
 
